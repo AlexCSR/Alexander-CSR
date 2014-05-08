@@ -1,0 +1,15 @@
+AddDefaultCharset UTF-8
+AddType application/x-httpd-php .php
+AddType text/x-component .htc
+AddType image/x-icon .ico
+Options -Indexes
+DirectoryIndex index.html index.php
+
+RewriteEngine on
+
+# if a directory or a file exists, use it directly
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# otherwise forward it to index.php
+RewriteRule . index.php
